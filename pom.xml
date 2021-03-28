@@ -8,13 +8,20 @@
 		<version>2.4.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.guimadois</groupId>
-	<artifactId>codechallenge.zap</artifactId>
+	<groupId>br.com.grupozap</groupId>
+	<artifactId>eng-zap-challenge</artifactId>
 	<version>1.0.0</version>
-	<name>codechallenge.zap</name>
+	<name>eng-zap-challenge</name>
 	<description>Zaps Code challenge project</description>
 	<properties>
 		<java.version>11</java.version>
+		
+		<mockito-core-version>2.22.0</mockito-core-version>
+		<assertj-core-version>3.11.1</assertj-core-version>
+		<spring-test-version>5.1.2.RELEASE</spring-test-version>
+		<junit-jupiter-engine-version>5.4.2</junit-jupiter-engine-version>
+		<junit-jupiter-params-version>5.4.2</junit-jupiter-params-version>
+		<junit-platform-launcher-version>1.4.2</junit-platform-launcher-version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -45,6 +52,44 @@
 		    <artifactId>gson</artifactId>
 		    <version>2.8.6</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring-test-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit-jupiter-engine-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-launcher</artifactId>
+			<version>${junit-platform-launcher-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>${junit-jupiter-params-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>${mockito-core-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>${assertj-core-version}</version>
+			<scope>test</scope>
+		</dependency>
+				
 	</dependencies>
 
 	<build>

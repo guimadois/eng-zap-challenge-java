@@ -27,7 +27,6 @@ public class ServiceInitializedEventListener {
 		} catch (Exception e) {
 			log.error(">>> Erro ao buscar dados iniciais: {}", getDeepCauseMessage(e));
 		}
-		
 		log.info(">>> Carga de dados finalizada com sucesso!");
 	}
 	

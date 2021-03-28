@@ -3,9 +3,11 @@ package br.com.codechallenge.zap.model;
 import java.util.Collections;
 import java.util.List;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class ItemAd {
 
 	private Integer usableAreas;

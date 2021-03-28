@@ -32,7 +32,7 @@ public class ApplicationController {
 	public ResponseEntity<ItemsWrapper> retrieveVivaRealItems(@PageableDefault(page = 1, size = 10)Pageable pageable) {
 				
 		ItemsWrapper dataWrapper = null;
-		
+		log.info("Requisitando informações Viva Real...");
 		try {			
 			dataWrapper = vivaRealService.retrieveFilteredData(pageable);
 		} catch (Exception e) {
@@ -47,6 +47,7 @@ public class ApplicationController {
 	public ResponseEntity<ItemsWrapper> retrieveZapItems(@PageableDefault(page = 1, size = 10)Pageable pageable) {
 		
 		ItemsWrapper dataWrapper = null;
+		log.info("Requisitando informações Zap...");
 		try {
 			dataWrapper = zapService.retrieveFilteredData(pageable);
 		} catch (Exception e) {

@@ -23,7 +23,7 @@ public class ZapServiceImpl extends BaseRetrieveDataService {
 
 	@Inject
 	private ZapConfigs configs;
-	
+
 	@Override
 	public boolean validateItem(ItemAd item) {
 		

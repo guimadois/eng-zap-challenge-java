@@ -9,9 +9,9 @@ import javax.inject.Inject;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import br.com.codechallenge.zap.config.APIConfigs;
+import br.com.codechallenge.zap.constants.RestTemplateComponent;
 import br.com.codechallenge.zap.model.ItemAd;
 import br.com.codechallenge.zap.service.ItemAdService;
 import br.com.codechallenge.zap.util.Utils;
@@ -24,6 +24,9 @@ public class ItemAdServiceImpl implements ItemAdService {
 	@Inject
 	private APIConfigs config;
 	
+	@Inject
+	private RestTemplateComponent rest;
+	
 	private List<ItemAd> listItemsAd = Collections.emptyList();
 
 	@Override
@@ -31,10 +34,9 @@ public class ItemAdServiceImpl implements ItemAdService {
 	public List<ItemAd> retrieveSourceData() throws Exception {
 		
 		if (Utils.isEmpty(listItemsAd)) {
-			log.info(">>> Requisitando carga inicial dos dados...");
+			log.info(">>> Requisitando dados...");
 			
-			ResponseEntity<ItemAd[]> response = new RestTemplate()
-													.getForEntity(config.getUrlSource(), ItemAd[].class);
+			ResponseEntity<ItemAd[]> response = rest.retrieveData(config.getUrlSource());
 			
 			if (!response.getStatusCode().is2xxSuccessful()) {
 				String errMsg = "Erro " + response.getStatusCodeValue() + " ao buscar dados iniciais!";
@@ -44,7 +46,7 @@ public class ItemAdServiceImpl implements ItemAdService {
 			
 			listItemsAd = Arrays.asList(response.getBody());
 		} else
-			log.info(">>> Dados requisitados em cache!");
+			log.info(">>> Recuperados dados armazenados em cache!");
 		
 		return listItemsAd;
 	}
